@@ -18,7 +18,7 @@ const component = () => {
 
 // can create our own flyout widget too with an optional 4th param. 
 // But could probably just make this a button
-(window as any).extensionsAPI.egisterStatusPanelExtension(
+(window as any).extensionsAPI.registerStatusPanelExtension(
   component,
   "Lattice Top Button",
   "lattice_top-button",
