@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Git tag to build release from"
+        description: "Git tag to build release from (defaults to tip of main)"
 
 jobs:
   build-ui:
@@ -21,11 +21,9 @@ jobs:
         run: yarn --cwd ui build
 
       - name: Draft release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.event.inputs.tag }}
           draft: true
           files: |
             ui/dist/extension.tar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
