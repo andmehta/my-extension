@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 // TODO replace this with the argo-tools Application object?
-interface Application {
+export interface Application {
     metadata: {
       name: string;
     };
