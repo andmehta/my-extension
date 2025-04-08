@@ -1,6 +1,6 @@
 const path = require('path');
 
-const extName = "Rollout";
+const extName = "Lattice";
 
 const config = {
   entry: {
