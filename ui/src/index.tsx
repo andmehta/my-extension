@@ -1,5 +1,5 @@
 import React from 'react';
-import LatticeTab from './latticeTab';
+import LatticeTab, { Application } from './latticeTab';
 
 // Register the extensions 1 at a time
 const statusPanelComponent = () => {
@@ -23,7 +23,17 @@ const statusPanelComponent = () => {
   "lattice_top-button",
 );
 
-const shouldDisplay = () => true;
+(window as any).extensionsAPI.registerTopBarActionMenuExt(
+  () => React.createElement("div", {}, "Click me"),
+  "Simple Button",
+  "simple_button",
+  () => React.createElement("div", {}, "Flyout Works"),
+  () => true,
+  "",
+  false
+);
+
+const shouldDisplay = (_application: Application) => true;
 
 // Flyout content
 const FlyoutComponent = () => (
@@ -37,13 +47,14 @@ const ToolbarButton = () => (
   </div>
 );
 
-// Register the extension
+console.log("Registering TopBarActionMenuExt...");
+
 (window as any).extensionsAPI.registerTopBarActionMenuExt(
   ToolbarButton,
   'Toolbar Extension Test',
-  'toolbar_extension_test', // ID should be lowercase and unique
+  'toolbar_extension_test',
   FlyoutComponent,
   shouldDisplay,
   'Test tooltip for toolbar button',
-  false // disabled = false
+  false
 );
