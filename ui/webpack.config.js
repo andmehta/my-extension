@@ -8,7 +8,7 @@ const config = {
   },
   output: {
     filename: `extensions-${extName}.js`,
-    path: __dirname + `/dist/resources/extension-${extName}.js`,
+    path: __dirname + `/dist/my-resources/extension-${extName}.js`,
     libraryTarget: "window",
     library: ["tmp", "extensions"],
   },
