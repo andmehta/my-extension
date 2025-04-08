@@ -1,12 +1,12 @@
 import React from 'react';
-import LatticeTab, { Application } from './latticeTab';
+import LatticeTab from './latticeTab';
 
 // Register the extensions 1 at a time
 const statusPanelComponent = () => {
   return React.createElement(
     "div",
     { style: { padding: "10px" } },
-    "Hello World"
+    "Hello World from Lattice Component"
   );
 };
 
@@ -17,14 +17,15 @@ const statusPanelComponent = () => {
   'Auto-Sync Control'
 );
 
-// can create our own flyout widget too with an optional 4th param. 
-// But could probably just make this a button
 (window as any).extensionsAPI.registerStatusPanelExtension(
   statusPanelComponent,
   "Lattice Top Button",
   "lattice_top-button",
 );
 
+const shouldDisplay = () => {
+  return true;
+};
 const flyout = () => {
   return React.createElement(
           "div",
@@ -32,7 +33,7 @@ const flyout = () => {
           "This is a flyout"
   );
 };
-const topBarActionMenuExtComponent = () => {
+const component = () => {
   return React.createElement(
           "div",
           {
@@ -41,17 +42,12 @@ const topBarActionMenuExtComponent = () => {
           "Toolbar Extension Test"
   );
 };
-
-const shouldDisplay = (app?: Application) => {
-  return true;
-};
-
 (window as any).extensionsAPI.registerTopBarActionMenuExt(
-  topBarActionMenuExtComponent,
-  "Lattice Auto-Sync disable",
-  "lattice_auto-sync-disable",
-  flyout,
-  shouldDisplay,
-  "fa fa-sync",
-  true,
-)
+        component,
+        "Toolbar Extension Test",
+        "Toolbar_Extension_Test",
+        flyout,
+        shouldDisplay,
+        '',
+        true
+);
