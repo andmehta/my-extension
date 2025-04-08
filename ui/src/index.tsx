@@ -53,4 +53,5 @@ const shouldDisplay = (app?: Application) => {
   flyout,
   shouldDisplay,
   "fa fa-sync",
+  true,
 )
