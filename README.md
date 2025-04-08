@@ -19,7 +19,7 @@ spec:
   template:
     spec:
       initContainers:
-        - name: sync-disable
+        - name: my-extension
           image: quay.io/argoprojlabs/argocd-extension-installer:v0.0.1
           env:
             - name: EXTENSION_URL
@@ -49,10 +49,10 @@ server:
   extensions:
     enabled: true
     extensionList:
-      - name: rollout-extension
+      - name: my-extension
         env:
           - name: EXTENSION_URL
-            value: https://github.com/argoproj-labs/rollout-extension/releases/download/v0.3.4/extension.tar
+            value: https://github.com/andmehta/my-extension/releases/download/v0.0.1/extension.tar
 ```
 
 #### Using `server.initContainers`, `server.volumeMounts`, and `server.volumes` directly
@@ -62,11 +62,11 @@ kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-rollouts/master
 ```yaml
 server:
   initContainers:
-    - name: rollout-extension
+    - name: my-extension
       image: quay.io/argoprojlabs/argocd-extension-installer:v0.0.1
       env:
       - name: EXTENSION_URL
-        value: https://github.com/argoproj-labs/rollout-extension/releases/download/v0.3.4/extension.tar
+        value: https://github.com/andmehta/my-extension/releases/download/v0.0.1/extension.tar
       volumeMounts:
         - name: extensions
           mountPath: /tmp/extensions/
