@@ -23,31 +23,27 @@ const statusPanelComponent = () => {
   "lattice_top-button",
 );
 
-const shouldDisplay = () => {
-  return true;
-};
-const flyout = () => {
-  return React.createElement(
-          "div",
-          { style: { padding: "10px" } },
-          "This is a flyout"
-  );
-};
-const component = () => {
-  return React.createElement(
-          "div",
-          {
-            onClick: () => flyout()
-          },
-          "Toolbar Extension Test"
-  );
-};
+const shouldDisplay = () => true;
+
+// Flyout content
+const FlyoutComponent = () => (
+  <div style={{ padding: '10px' }}>This is a flyout</div>
+);
+
+// Button on the toolbar
+const ToolbarButton = () => (
+  <div style={{ cursor: 'pointer', padding: '5px 10px' }}>
+    Toolbar Extension Test
+  </div>
+);
+
+// Register the extension
 (window as any).extensionsAPI.registerTopBarActionMenuExt(
-        component,
-        "Toolbar Extension Test",
-        "Toolbar_Extension_Test",
-        flyout,
-        shouldDisplay,
-        '',
-        true
+  ToolbarButton,
+  'Toolbar Extension Test',
+  'toolbar_extension_test', // ID should be lowercase and unique
+  FlyoutComponent,
+  shouldDisplay,
+  'Test tooltip for toolbar button',
+  false // disabled = false
 );
