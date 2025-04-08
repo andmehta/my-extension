@@ -1,0 +1,1 @@
+# We're testing auto-create of documentation here too
