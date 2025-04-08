@@ -43,7 +43,7 @@ const topBarActionMenuExtComponent = () => {
 };
 
 const shouldDisplay = (app?: Application) => {
-  return !!app;
+  return true;
 };
 
 (window as any).extensionsAPI.registerTopBarActionMenuExt(
