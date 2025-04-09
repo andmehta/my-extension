@@ -23,16 +23,6 @@ const statusPanelComponent = () => {
   "lattice_top-button",
 );
 
-(window as any).extensionsAPI.registerTopBarActionMenuExt(
-  () => React.createElement("div", {}, "Click me"),
-  "Simple Button",
-  "simple_button",
-  () => React.createElement("div", {}, "Flyout Works"),
-  () => true,
-  "",
-  false
-);
-
 const shouldDisplay = (_application: Application) => true;
 
 // Flyout content
@@ -42,7 +32,7 @@ const FlyoutComponent = () => (
 
 // Button on the toolbar
 const ToolbarButton = () => (
-  <div style={{ cursor: 'pointer', padding: '5px 10px' }}>
+  <div style={{ cursor: 'pointer', padding: '1px' }}>
     Toolbar Extension Test
   </div>
 );
@@ -51,10 +41,10 @@ console.log("Registering TopBarActionMenuExt...");
 
 (window as any).extensionsAPI.registerTopBarActionMenuExt(
   ToolbarButton,
-  'Toolbar Extension Test',
-  'toolbar_extension_test',
+  'Lattice Toolbar',
+  'toolbar_extension',
   FlyoutComponent,
   shouldDisplay,
-  'Test tooltip for toolbar button',
-  false
+  'fa fa-cog',
+  true
 );
