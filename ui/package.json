@@ -8,20 +8,20 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "argo-rollouts": "git+https://github.com/argoproj/argo-rollouts.git#a4d50d8e65d5fa33a6e7f33f43be9a3df83b06f7",
     "argo-ui": "git+https://github.com/argoproj/argo-ui.git#5ff344ac9692c14dd108468bd3c020c3c75181cb",
-    "classnames": "2.2.6",
-    "json-loader": "^0.5.7",
     "axios": "^1.6.2",
-    "recharts": "^2.9.0",
+    "classnames": "2.2.6",
+    "isomorphic-fetch": "^3.0.0",
+    "json-loader": "^0.5.7",
     "null-loader": "^4.0.1",
     "react": "^16.9.3",
     "react-dom": "^16.9.3",
     "react-helmet": "^6.1.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.3",
+    "recharts": "^2.9.0",
     "ts-loader": "^8.2.0",
     "typescript": "^4.9.5",
-    "web-vitals": "^1.0.1",
-    "isomorphic-fetch": "^3.0.0"
+    "web-vitals": "^1.0.1"
   },
   "peerDeependencies": {
     "argo-ui": "git+https://github.com/argoproj/argo-ui.git#5ff344ac9692c14dd108468bd3c020c3c75181cb",
@@ -29,8 +29,8 @@
     "react": "^16.9.3"
   },
   "scripts": {
-    "start": "NODE_OPTIONS=--openssl-legacy-provider webpack --config ./webpack.config.js --watch",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --config ./webpack.config.js && tar -C dist -cvf dist/extension.tar resources"
+    "start": "NODE_OPTIONS=--openssl-legacy-provider vite build --watch",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider vite build && tar -C dist -cvf dist/extension.tar resources"
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +53,7 @@
     "@types/react": "^16.9.3",
     "@types/react-dom": "^16.9.3",
     "@types/react-helmet": "^6.1.0",
+    "@vitejs/plugin-react": "^4.3.4",
     "babel-preset-react": "^6.24.1",
     "portable-fetch": "^3.0.0",
     "raw-loader": "^4.0.2",
@@ -60,6 +61,7 @@
     "rxjs": "^7.1.0",
     "sass": "^1.34.1",
     "ts-loader": "8.2.0",
+    "vite": "^6.2.6",
     "webpack-cli": "^4.9.2"
   },
   "resolutions": {
