@@ -23,7 +23,7 @@ spec:
           image: quay.io/argoprojlabs/argocd-extension-installer:v0.0.1
           env:
             - name: EXTENSION_URL
-              value: https://github.com/andmehta/my-extension/releases/download/v0.0.1/extension.tar
+              value: https://github.com/andmehta/my-extension/releases/download/v0.0.15/extension.tar
           securityContext:
             runAsUser: 1000
             allowPrivilegeEscalation: false
