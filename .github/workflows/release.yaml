@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Git tag to build release from (defaults to tip of main)"
+        description: "Git tag to create for the release"
 
 jobs:
   build-ui:
@@ -14,18 +14,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+      
       - name: Install UI dependencies
-        run: yarn --cwd ui install
+        run: pnpm --filter ./ui install
 
       - name: Build UI asset
-        run: yarn --cwd ui build
+        run: pnpm --filter ./ui build
+        env: 
+          NODE_ENV: production
 
       - name: Draft release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.event.inputs.tag }}
           draft: false
-          make_latest: true
+          make_latest: false
           body_path: CHANGELOG.md
           files: |
             ui/dist/extension.tar
