@@ -22,6 +22,8 @@ jobs:
 
       - name: Build UI asset
         run: pnpm --filter ./ui build
+        env: 
+          NODE_ENV: production
 
       - name: Draft release
         uses: softprops/action-gh-release@v2

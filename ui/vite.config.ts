@@ -42,6 +42,7 @@ export default defineConfig({
   define: {
     // This will prevent the file from being included — you can fine-tune this in a plugin
     '__NULL_LOADER_PLACEHOLDER__': 'undefined',
+    'process.env': { NODE_ENV: process.env.NODE_ENV },
   },
   plugins: [
     react(),
