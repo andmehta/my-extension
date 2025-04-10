@@ -33,11 +33,9 @@ const FlyoutComponent = () => (
 // Button on the toolbar
 const ToolbarButton = () => (
   <div style={{ cursor: 'pointer', padding: '1px' }}>
-    Toolbar Extension Test
+    Lattice
   </div>
 );
-
-console.log("Registering TopBarActionMenuExt...");
 
 (window as any).extensionsAPI.registerTopBarActionMenuExt(
   ToolbarButton,
