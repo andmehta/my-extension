@@ -15,17 +15,17 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install UI dependencies
-        run: yarn --cwd ui install
+        run: pnpm --filter ./ui install
 
       - name: Build UI asset
-        run: yarn --cwd ui build
+        run: pnpm --filter ./ui build
 
       - name: Draft release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.event.inputs.tag }}
           draft: false
-          make_latest: true
+          make_latest: false
           body_path: CHANGELOG.md
           files: |
             ui/dist/extension.tar
