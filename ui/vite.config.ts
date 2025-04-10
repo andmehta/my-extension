@@ -30,9 +30,6 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react'],
   },
-  esbuild: {
-    jsxInject: `import React from 'react'`,
-  },
   css: {
     preprocessorOptions: {
       scss: {},

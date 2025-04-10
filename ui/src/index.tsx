@@ -1,5 +1,5 @@
 // I get an error on build when I have this import, but I get eslint errors in the editor when I don't... probably fixable. Worth investigating
-// import React from 'react';
+import React from 'react';
 import LatticeTab, { Application } from './latticeTab';
 
 // Register the extensions 1 at a time
